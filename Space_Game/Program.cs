@@ -16,24 +16,19 @@ namespace Space_Game
         {
 
             Console.WriteLine("Welcome to Space Game Main Menu:");
-            Console.WriteLine("Please enter your character's name");
-            string CharacterName = Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine("Your chosen name is: " + CharacterName);
-            Console.WriteLine("Hello " + CharacterName + " The year is 2225. You have just bought your first starship.");
-            Console.WriteLine("Your cargo hold can only hold 1 unit of cargo. You have only 25 credits left");
-            Console.WriteLine("Oxygen in available on earth for: 15 credits");
-            Console.WriteLine("Nitrogen is available for 5 credits");
-            Console.WriteLine("Co2 is available for 10 credits.");
+            Console.WriteLine("Hello Traveler The year is 2225.You have saved enough money on earth to afford your first Star Ship");
+            Console.WriteLine("Your cargo hold can only hold 1 unit of cargo for now. You have only 25 credits left");
             Console.WriteLine("Each Element has a different value between the different planets.");
             Console.WriteLine("travel to them to find out and make a profit!");
-            Console.WriteLine("Press enter to continue");
+            Console.WriteLine("Press Enter to Start your journey!");
+            Console.ReadLine();
+            Console.Clear();
             PlanetScreenEarth();
             Console.ReadLine();
         }
 
 
-
+        //Earth
         static void PlanetScreenEarth()
         {
             string input = "";
@@ -58,19 +53,31 @@ namespace Space_Game
                 Console.Clear();
                 TravelPlanetsEarth();
             }
+            else
+            {
+                Console.Clear();
+                PlanetScreenEarth();
+            }
 
 
         }
         static void TradingPostEarth()
         {
             string input = "";
+            Console.WriteLine("------------------------BUY----------------------------");
             Console.WriteLine("To buy Oxygen (15 Credits) press: a");
             Console.WriteLine("To buy Nitrogen (5) press: b");
             Console.WriteLine("To buy Co2 (10) press: c");
+            Console.WriteLine("------------------------SELL----------------------------");
             Console.WriteLine("To sell Oxygen (15 Credits) press: d");
             Console.WriteLine("To sell Nitrogen (5) press: e");
             Console.WriteLine("To sell Co2(10) press: f");
             Console.WriteLine("To return to Main menu Press: g");
+            Console.WriteLine("----------------------Cargo Hold------------------------");
+            Console.WriteLine("You currently have in your Cargo Hold: ");
+            Console.WriteLine("Oxygen: " + Oxygen);
+            Console.WriteLine("Nitrogen: " + Nitrogen);
+            Console.WriteLine("Co2: " + Co2);
             input = Console.ReadLine();
             if (input == "a")
             {
@@ -151,7 +158,10 @@ namespace Space_Game
                 if (Oxygen < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -170,7 +180,10 @@ namespace Space_Game
                 if (Nitrogen < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -189,7 +202,10 @@ namespace Space_Game
                 if (Co2 < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -208,11 +224,7 @@ namespace Space_Game
                 Console.Clear();
                 PlanetScreenEarth();
             }
-        }
-
-
-
-       
+        }      
         static void TravelPlanetsEarth()
         {
             string input = "";
@@ -237,9 +249,7 @@ namespace Space_Game
             }
         }
 
-
-
-
+        //Alpha Centauri
         static void PlanetScreenAlphaCentauri()
         {
             string input = "";
@@ -273,13 +283,20 @@ namespace Space_Game
         static void TradingPostAlphaCentauri()
         {
             string input = "";
+            Console.WriteLine("------------------------BUY----------------------------");
             Console.WriteLine("To buy Oxygen (20) press: a");
             Console.WriteLine("To buy Nitrogen (10) press: b");
             Console.WriteLine("To buy Co2 (5) press: c");
+            Console.WriteLine("------------------------SELL----------------------------");
             Console.WriteLine("To sell Oxygen (20) press: d");
             Console.WriteLine("To sell Nitrogen(10) press: e");
             Console.WriteLine("to sell Co2 (5) press: f");
             Console.WriteLine("To return to Main menu Press: g");
+             Console.WriteLine("----------------------Cargo Hold------------------------");
+            Console.WriteLine("You currently have in your Cargo Hold: ");
+            Console.WriteLine("Oxygen: " + Oxygen);
+            Console.WriteLine("Nitrogen: " + Nitrogen);
+            Console.WriteLine("Co2: " + Co2);
             input = Console.ReadLine();
             if (input == "a")
             {
@@ -360,7 +377,10 @@ namespace Space_Game
                 if (Oxygen < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -379,7 +399,10 @@ namespace Space_Game
                 if (Nitrogen < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -398,7 +421,10 @@ namespace Space_Game
                 if (Co2 < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -443,6 +469,7 @@ namespace Space_Game
             }
         }
 
+        //M63
         static void PlanetScreenM63()
         {
             string input = "";
@@ -476,13 +503,20 @@ namespace Space_Game
         static void TradingPostM63()
         {
             string input = "";
+            Console.WriteLine("------------------------BUY----------------------------");
             Console.WriteLine("To buy Oxygen (10 Credits) press: a");
             Console.WriteLine("To buy Nitrogen (25 Credits) press: b");
             Console.WriteLine("To buy Co2 (15 Credits) press: c");
+            Console.WriteLine("------------------------SELL----------------------------");
             Console.WriteLine("To sell Oxygen (10 Credits) press: d");
             Console.WriteLine("To sell Nitrogen (25 Credits) press: e");
             Console.WriteLine("To sell Co2 (15 Credits) press: f");
             Console.WriteLine("To return to menu Press: g");
+            Console.WriteLine("----------------------Cargo Hold------------------------");
+            Console.WriteLine("You currently have in your Cargo Hold: ");
+            Console.WriteLine("Oxygen: " + Oxygen);
+            Console.WriteLine("Nitrogen: " + Nitrogen);
+            Console.WriteLine("Co2: " + Co2);
             input = Console.ReadLine();
             if (input == "a")
             {
@@ -563,7 +597,10 @@ namespace Space_Game
                 if (Oxygen < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -582,6 +619,10 @@ namespace Space_Game
                 if (Nitrogen < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
+                    Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth(); Console.WriteLine("You do not have any to sell");
                     Console.ReadLine();
                 }
                 else
@@ -601,7 +642,10 @@ namespace Space_Game
                 if (Co2 < 1)
                 {
                     Console.WriteLine("You do not have any to sell");
+                    Console.WriteLine("Press Enter");
                     Console.ReadLine();
+                    Console.Clear();
+                    TradingPostEarth();
                 }
                 else
                 {
@@ -622,7 +666,6 @@ namespace Space_Game
             }
 
         }
-
         static void TravelPlanetsM63()
         {
             string input = "";
@@ -647,7 +690,13 @@ namespace Space_Game
                 PlanetScreenM63();
             }
         }
-            static void UpgradeShop()
+
+        static void WarpTravel()
+        {
+            //v(WarpLevel) = WarpLevel ^ 10 / 3 + (10 - WarpLevel) ^ (-11 / 3);
+
+        }
+        static void UpgradeShop()
             {
                 string input = "";
                 Console.WriteLine("To upgrade Warp Drive for 50 Credits Press: a");
@@ -675,14 +724,14 @@ namespace Space_Game
                 }
             }
             }
-            static void EndCreditsTime()
+        static void EndCreditsTime()
            {
             Console.WriteLine("You have Traveled for over 40 years, its time to retire from space trading.");
             Console.WriteLine("You have retired with " + bankPlayer + " Credits");
             Console.WriteLine("Press Enter to return to the main menu");
             Main();
            }
-            static void EndCreditsMoney()
+        static void EndCreditsMoney()
         {
             Console.WriteLine("You have ran out of funds for your adventure");
             Console.WriteLine("Time to move back in with your Space Parents");
