@@ -10,8 +10,8 @@ namespace Space_Game
         static int Oxygen = 0;
         static int Nitrogen = 0;
         static int Co2 = 0;
-        static int TimeYears = 40;
-        static int WarpLevel = 5;
+        static Double TimeYears = 0;
+        static int WarpLevel = 2;
         static void Main()
         {
 
@@ -29,6 +29,7 @@ namespace Space_Game
 
 
         //Earth
+        
         static void PlanetScreenEarth()
         {
             string input = "";
@@ -81,7 +82,12 @@ namespace Space_Game
             input = Console.ReadLine();
             if (input == "a")
             {
-                if (bankPlayer < 15)
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
+
+                if (bankPlayer <= 15)
                 {
                     Console.WriteLine("You do not have enough credits");
                     Console.ReadLine();
@@ -105,6 +111,10 @@ namespace Space_Game
             }
             if (input == "b")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 5)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -131,6 +141,10 @@ namespace Space_Game
             }
             if (input == "c")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 10)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -234,6 +248,7 @@ namespace Space_Game
             input = Console.ReadLine();
             if (input == "a")
             {
+                WarpTravelEarthToAC();
                 Console.Clear();
                 PlanetScreenAlphaCentauri();
             }
@@ -300,6 +315,10 @@ namespace Space_Game
             input = Console.ReadLine();
             if (input == "a")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 20)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -324,6 +343,10 @@ namespace Space_Game
             }
             if (input == "b")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 10)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -350,6 +373,10 @@ namespace Space_Game
             }
             if (input == "c")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 5)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -520,6 +547,10 @@ namespace Space_Game
             input = Console.ReadLine();
             if (input == "a")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 10)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -544,6 +575,10 @@ namespace Space_Game
             }
             if (input == "b")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 25)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -570,6 +605,10 @@ namespace Space_Game
             }
             if (input == "c")
             {
+                if (bankPlayer < 1)
+                {
+                    EndCreditsMoney();
+                }
                 if (bankPlayer < 5)
                 {
                     Console.WriteLine("You do not have enough credits");
@@ -691,24 +730,28 @@ namespace Space_Game
             }
         }
 
-        static void WarpTravel()
+        static void WarpTravelEarthToAC()
         {
-            //v(WarpLevel) = WarpLevel ^ 10 / 3 + (10 - WarpLevel) ^ (-11 / 3);
-
+            double Speed;
+            Speed = Math.Pow(WarpLevel, (10.0 / 3)) + Math.Pow(10 - WarpLevel, (-11 / 3.0));
+            TimeYears = 4.0 / Speed;
+            Console.WriteLine("You have traveled: " + TimeYears);
+            Console.ReadLine();
         }
         static void UpgradeShop()
             {
                 string input = "";
                 Console.WriteLine("To upgrade Warp Drive for 50 Credits Press: a");
                 Console.WriteLine("To upgrade Cargo Hold Press: b");
+                Console.WriteLine("*** The upgrade shop cannot upgrade unless you cargo hold is empty***");
                 Console.WriteLine("To return to Main menu Press: c");
                 input = Console.ReadLine();
             if (input == "a")
             {
-                if (WarpLevel > 9)
+                if (WarpLevel >= 9)
                 {
                     Console.WriteLine("Warp level at maximum");
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
                 if (bankPlayer < 50)
                 {
@@ -722,7 +765,28 @@ namespace Space_Game
                     Console.WriteLine("You have upgraded your warp level to: " + WarpLevel);
                     Console.ReadLine();
                 }
+   
             }
+            if (input == "b")
+            {
+                if (CargoSpace >= 5)
+                {
+                    Console.WriteLine("CargoSpace at maximum");
+                    Console.ReadLine();
+                }
+                if (bankPlayer <= 25)
+                {
+                    Console.WriteLine("You do not have enough credits");
+                    Console.ReadLine();
+                }
+                else
+                {
+                    CargoSpace += 1;
+                    bankPlayer -= 25;
+                    Console.WriteLine("You have upgraded your cargo hold to: " + CargoSpace);
+                }
+            }
+           
             }
         static void EndCreditsTime()
            {
